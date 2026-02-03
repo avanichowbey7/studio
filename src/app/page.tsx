@@ -10,7 +10,7 @@ import { ArrowRight, Cross, Calendar } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const doctorImg = PlaceHolderImages.find(img => img.id === "doctor-illustration");
   const hospitalImg = PlaceHolderImages.find(img => img.id === "hospital-building");
 
@@ -32,18 +32,14 @@ export default function Home() {
               <h1 className="text-6xl md:text-8xl font-black text-blue-900 font-headline tracking-tighter">
                 {t("brandName")}
               </h1>
-              {language === "english" && (
-                <h2 className="text-2xl md:text-3xl font-bold text-blue-700/80 tracking-[0.2em] uppercase">
-                  Swasthya Mitra
-                </h2>
-              )}
+              <h2 className="text-2xl md:text-3xl font-bold text-blue-700/80 tracking-[0.2em] uppercase">
+                Swasthya Mitra
+              </h2>
             </div>
 
             <div className="space-y-4 bg-white/30 backdrop-blur-md p-6 rounded-3xl border border-white/50 inline-block">
               <p className="text-xl md:text-2xl text-blue-800 font-medium leading-relaxed">
-                {language === "english" ? (
-                  <>Easy doctor appointments,<br /> respect for every patient</>
-                ) : t("tagline")}
+                {t("tagline")}
               </p>
             </div>
 

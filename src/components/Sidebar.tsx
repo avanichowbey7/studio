@@ -35,7 +35,7 @@ export function Sidebar() {
   }, []);
 
   return (
-    <div className="sidebar-gradient w-64 h-screen fixed left-0 top-0 flex flex-col shadow-2xl relative overflow-hidden text-white z-50">
+    <div className="sidebar-gradient w-64 h-screen sticky left-0 top-0 flex flex-col shadow-2xl overflow-hidden text-white z-50 shrink-0">
       {stars.map((star, i) => (
         <div
           key={i}
