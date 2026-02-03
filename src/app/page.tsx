@@ -17,7 +17,8 @@ export default function Home() {
   return (
     <MainLayout>
       <div className="hero-gradient min-h-screen flex items-center justify-center p-8 md:p-12 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 grayscale z-0 pointer-events-none">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 opacity-20 grayscale z-0 pointer-events-none">
           <Image
             src={hospitalImg?.imageUrl || ""}
             alt="Hospital Background"
@@ -27,7 +28,7 @@ export default function Home() {
         </div>
 
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center lg:text-left space-y-8 flex flex-col justify-center h-full">
             <div className="space-y-2">
               <h1 className="text-6xl md:text-8xl font-black text-blue-900 font-headline tracking-tighter">
                 {t("brandName")}
@@ -37,7 +38,7 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="space-y-4 bg-white/30 backdrop-blur-md p-6 rounded-3xl border border-white/50 inline-block">
+            <div className="space-y-4 bg-white/40 backdrop-blur-md p-6 rounded-3xl border border-white/50 inline-block self-center lg:self-start">
               <p className="text-xl md:text-2xl text-blue-800 font-medium leading-relaxed">
                 {t("tagline")}
               </p>
@@ -82,7 +83,7 @@ export default function Home() {
                   alt="Doctor Illustration"
                   fill
                   className="object-cover"
-                  data-ai-hint="Smiling Doctor"
+                  data-ai-hint="Friendly Doctor"
                 />
               </div>
 

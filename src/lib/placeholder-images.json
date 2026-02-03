@@ -9,14 +9,14 @@
     {
       "id": "doctor-illustration",
       "description": "Friendly smiling male doctor in white coat with stethoscope",
-      "imageUrl": "https://images.unsplash.com/photo-1601273876529-429a8112cd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxEb2N0b3IlMjBJbGx1c3RyYXRpb258ZW58MHx8fHwxNzcwMDk2MTI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Doctor Illustration"
+      "imageUrl": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkb2N0b3J8ZW58MHx8fHwxNjk0NTYxMjYw&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Friendly Doctor"
     },
     {
       "id": "hospital-building",
-      "description": "Government hospital building with medical cross",
-      "imageUrl": "https://images.unsplash.com/photo-1596541223130-5d31a73fb6c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxIb3NwaXRhbCUyMEJ1aWxkaW5nfGVufDB8fHx8MTc3MDA5NjEyNnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Hospital Building"
+      "description": "Modern government hospital building facade",
+      "imageUrl": "https://images.unsplash.com/photo-1586773860418-d37222d8fce2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxIb3NwaXRhbHxlbnwwfHx8fDE2OTQ1NjEyNjA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Hospital Facade"
     },
     {
       "id": "doctor-card-1",
