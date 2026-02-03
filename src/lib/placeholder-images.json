@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "ashoka-emblem",
+      "description": "Ashoka emblem government logo",
+      "imageUrl": "https://images.unsplash.com/photo-1760795300835-1cbdfb16c849?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxBc2hva2ElMjBFbWJsZW18ZW58MHx8fHwxNzcwMDk2MTI2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Ashoka Emblem"
+    },
+    {
+      "id": "doctor-illustration",
+      "description": "Friendly smiling male doctor in white coat with stethoscope",
+      "imageUrl": "https://images.unsplash.com/photo-1601273876529-429a8112cd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxEb2N0b3IlMjBJbGx1c3RyYXRpb258ZW58MHx8fHwxNzcwMDk2MTI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Doctor Illustration"
+    },
+    {
+      "id": "hospital-building",
+      "description": "Government hospital building with medical cross",
+      "imageUrl": "https://images.unsplash.com/photo-1596541223130-5d31a73fb6c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxIb3NwaXRhbCUyMEJ1aWxkaW5nfGVufDB8fHx8MTc3MDA5NjEyNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Hospital Building"
+    },
+    {
+      "id": "doctor-card-1",
+      "description": "Dr. Sharma profile",
+      "imageUrl": "https://images.unsplash.com/photo-1622475441980-0a422e04efdd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxEb2N0b3IlMjBGYWNlfGVufDB8fHx8MTc3MDA5NjEyNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Doctor Face"
+    },
+    {
+      "id": "doctor-card-2",
+      "description": "Dr. Gupta profile",
+      "imageUrl": "https://images.unsplash.com/photo-1594819246185-dbf1d40ebeaf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxEb2N0b3IlMjBGYWNlfGVufDB8fHx8MTc3MDA5NjEyNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Doctor Face"
+    },
+    {
+      "id": "doctor-card-3",
+      "description": "Dr. Patil profile",
+      "imageUrl": "https://images.unsplash.com/photo-1612537784037-898eb4583c35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxEb2N0b3IlMjBGYWNlfGVufDB8fHx8MTc3MDA5NjEyNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Doctor Face"
+    }
+  ]
 }
