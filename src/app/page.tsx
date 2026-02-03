@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { ArrowRight, Cross, Calendar } from "lucide-react";
+import { ArrowRight, Cross, Calendar, Quote } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
     <MainLayout>
       <div className="hero-gradient min-h-screen flex items-center justify-center p-8 md:p-12 relative overflow-hidden">
         {/* Background Image Layer */}
-        <div className="absolute inset-0 opacity-20 grayscale z-0 pointer-events-none">
+        <div className="absolute inset-0 opacity-15 grayscale z-0 pointer-events-none">
           <Image
             src={hospitalImg?.imageUrl || ""}
             alt="Hospital Background"
@@ -28,7 +28,7 @@ export default function Home() {
         </div>
 
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-          <div className="text-center lg:text-left space-y-8 flex flex-col justify-center h-full">
+          <div className="text-center lg:text-left space-y-10 flex flex-col justify-center h-full">
             <div className="space-y-2">
               <h1 className="text-6xl md:text-8xl font-black text-blue-900 font-headline tracking-tighter">
                 {t("brandName")}
@@ -38,17 +38,26 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="space-y-4 bg-yellow-100/90 backdrop-blur-md p-6 rounded-3xl border-2 border-yellow-400/50 inline-block self-center lg:self-start shadow-xl shadow-yellow-100/30">
-              <p className="text-xl md:text-2xl text-blue-900 font-bold leading-relaxed italic">
-                "{t("tagline")}"
-              </p>
+            {/* Highlighted Tagline Quote */}
+            <div className="relative group/quote self-center lg:self-start max-w-lg">
+              <div className="absolute -top-4 -left-4 bg-blue-600 text-white p-3 rounded-2xl shadow-xl z-20 transform -rotate-12 transition-transform group-hover/quote:rotate-0">
+                <Quote className="h-6 w-6 fill-current" />
+              </div>
+              <div className="bg-yellow-100/95 backdrop-blur-md p-8 md:p-10 rounded-[2.5rem] border-2 border-yellow-400/50 inline-block shadow-2xl shadow-yellow-200/50 relative overflow-hidden transition-all hover:shadow-yellow-300/60">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/30 rounded-full -translate-y-16 translate-x-16 blur-3xl" />
+                <p className="text-2xl md:text-3xl text-blue-950 font-bold leading-tight italic relative z-10">
+                  {t("tagline")}
+                </p>
+              </div>
             </div>
 
             <div className="space-y-1">
-              <p className="text-4xl md:text-5xl font-bold text-gray-800 tracking-tight">{t("hello")}</p>
+              <p className="text-4xl md:text-5xl font-bold text-gray-800 tracking-tight">
+                {t("hello")}
+              </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start pt-4">
               <Link href="/book">
                 <Button className="h-16 px-10 rounded-full bg-green-500 hover:bg-green-600 text-white text-xl font-bold shadow-xl shadow-green-200 transition-all hover:scale-105 active:scale-95 flex items-center gap-3 border-none">
                   {t("bookAppointment")}
@@ -62,13 +71,13 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="flex items-center gap-4 justify-center lg:justify-start opacity-60">
-              <div className="flex items-center gap-2 px-3 py-1 bg-blue-100 rounded-full text-xs font-bold text-blue-800 uppercase tracking-widest">
-                <Cross className="h-3 w-3 text-red-600 fill-red-600" />
+            <div className="flex items-center gap-4 justify-center lg:justify-start opacity-70">
+              <div className="flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full text-xs font-bold text-blue-800 uppercase tracking-widest border border-blue-200 shadow-sm">
+                <Cross className="h-4 w-4 text-red-600 fill-red-600" />
                 {t("govtInitiative")}
               </div>
-              <div className="w-1 h-1 bg-gray-400 rounded-full" />
-              <p className="text-sm font-medium">{t("bplInfo")}</p>
+              <div className="w-1.5 h-1.5 bg-blue-300 rounded-full" />
+              <p className="text-sm font-bold text-blue-900/70">{t("bplInfo")}</p>
             </div>
           </div>
 
@@ -90,7 +99,7 @@ export default function Home() {
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-green-100 rounded-full flex items-center justify-center shadow-lg border-4 border-white animate-bounce duration-[3000ms]">
                 <Calendar className="h-10 w-10 text-green-600" />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-blue-50">
+              <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-blue-50">
                 <p className="text-xs font-bold text-gray-500 uppercase">{t("waitTime")}</p>
                 <p className="text-xl font-black text-blue-900">{t("mins")}</p>
               </div>
