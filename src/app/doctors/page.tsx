@@ -1,12 +1,15 @@
 
+"use client";
+
 import { MainLayout } from "@/components/MainLayout";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Star, Clock, MapPin, Award } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const doctors = [
   {
@@ -42,14 +45,16 @@ const doctors = [
 ];
 
 export default function DoctorsPage() {
+  const { t } = useLanguage();
+
   return (
     <MainLayout>
       <div className="p-8 md:p-12 space-y-12 max-w-7xl mx-auto">
         <header className="space-y-4">
           <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100 border-none font-bold">Specialists</Badge>
-          <h1 className="text-4xl font-bold text-blue-900 font-headline">Meet Our Doctors</h1>
+          <h1 className="text-4xl font-bold text-blue-900 font-headline">{t("specialistsHeader")}</h1>
           <p className="text-gray-600 max-w-3xl leading-relaxed">
-            Our hospital is proud to host some of the most experienced healthcare professionals in the country. All our doctors are dedicated to providing compassionate care to every citizen.
+            {t("specialistsSub")}
           </p>
         </header>
 
@@ -78,14 +83,14 @@ export default function DoctorsPage() {
                 <CardContent className="p-6 space-y-4 flex-1">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Experience</p>
+                      <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">{t("experience")}</p>
                       <div className="flex items-center gap-2 text-sm text-gray-700 font-medium">
                         <Award className="h-4 w-4 text-blue-500" />
                         {doctor.experience}
                       </div>
                     </div>
                     <div className="space-y-1">
-                      <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Availability</p>
+                      <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">{t("availability")}</p>
                       <div className="flex items-center gap-2 text-sm text-gray-700 font-medium">
                         <Clock className="h-4 w-4 text-blue-500" />
                         {doctor.availability}
@@ -93,7 +98,7 @@ export default function DoctorsPage() {
                     </div>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Clinic Location</p>
+                    <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">{t("clinicLocation")}</p>
                     <div className="flex items-center gap-2 text-sm text-gray-700 font-medium">
                       <MapPin className="h-4 w-4 text-blue-500" />
                       {doctor.location}
@@ -103,7 +108,7 @@ export default function DoctorsPage() {
                 <CardFooter className="p-6 pt-0">
                   <Link href="/book" className="w-full">
                     <Button className="w-full bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white border-blue-100 shadow-none transition-colors h-11">
-                      Request Consultation
+                      {t("requestConsultation")}
                     </Button>
                   </Link>
                 </CardFooter>

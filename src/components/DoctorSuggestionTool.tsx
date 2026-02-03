@@ -8,8 +8,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Sparkles, Loader2, Stethoscope, Building2, Info } from "lucide-react";
 import { suggestDoctor, SuggestDoctorOutput } from "@/ai/flows/suggest-doctor-based-on-symptoms";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/context/LanguageContext";
+import { Badge } from "@/components/ui/badge";
 
 export function DoctorSuggestionTool() {
+  const { t } = useLanguage();
   const [symptoms, setSymptoms] = useState("");
   const [history, setHistory] = useState("");
   const [loading, setLoading] = useState(false);
@@ -49,31 +52,31 @@ export function DoctorSuggestionTool() {
       <CardHeader className="bg-gradient-to-r from-blue-50 to-white">
         <div className="flex items-center gap-2 mb-2">
           <Sparkles className="h-5 w-5 text-blue-500 fill-blue-500" />
-          <Badge variant="outline" className="border-blue-200 text-blue-700 bg-blue-50">AI Assistant</Badge>
+          <Badge variant="outline" className="border-blue-200 text-blue-700 bg-blue-50">{t("aiAssistant")}</Badge>
         </div>
-        <CardTitle className="text-2xl text-blue-900">Not sure which doctor to see?</CardTitle>
+        <CardTitle className="text-2xl text-blue-900">{t("suggestionToolTitle")}</CardTitle>
         <CardDescription>
-          Describe your symptoms and our AI assistant will suggest the right department.
+          {t("suggestionToolSub")}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6 pt-6">
         <div className="space-y-4">
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-gray-700">How are you feeling?</label>
+            <label className="text-sm font-semibold text-gray-700">{t("symptomsLabel")}</label>
             <Textarea
-              placeholder="Example: I have been having sharp chest pain and shortness of breath for two days..."
+              placeholder="Example: I have been having sharp chest pain..."
               value={symptoms}
               onChange={(e) => setSymptoms(e.target.value)}
-              className="min-h-[100px] border-blue-100 focus:ring-blue-200"
+              className="min-h-[100px] border-blue-100"
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-gray-700">Any past medical history? (Optional)</label>
+            <label className="text-sm font-semibold text-gray-700">{t("historyLabel")}</label>
             <Textarea
-              placeholder="Example: High blood pressure, taking Atenolol daily."
+              placeholder="Example: High blood pressure..."
               value={history}
               onChange={(e) => setHistory(e.target.value)}
-              className="min-h-[60px] border-blue-100 focus:ring-blue-200"
+              className="min-h-[60px] border-blue-100"
             />
           </div>
         </div>
@@ -81,12 +84,12 @@ export function DoctorSuggestionTool() {
         <Button
           onClick={handleSuggest}
           disabled={loading}
-          className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition-all active:scale-[0.98]"
+          className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition-all"
         >
           {loading ? (
-            <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Analyzing Symptoms...</>
+            <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t("analyzeSymptoms")}</>
           ) : (
-            <>Get Suggestion</>
+            <>{t("getSuggestion")}</>
           )}
         </Button>
 
@@ -94,31 +97,31 @@ export function DoctorSuggestionTool() {
           <div className="mt-8 space-y-4 animate-in fade-in slide-in-from-top-4 duration-500">
             <div className="p-6 bg-green-50 rounded-xl border border-green-100 shadow-inner">
               <h4 className="text-lg font-bold text-green-900 mb-4 flex items-center gap-2">
-                <Info className="h-5 w-5" /> Recommendation
+                <Info className="h-5 w-5" /> {t("recommendation")}
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm border border-green-50">
                   <Stethoscope className="h-6 w-6 text-green-600 mt-1" />
                   <div>
-                    <p className="text-xs font-medium text-green-600 uppercase tracking-wider">Suggested Doctor</p>
+                    <p className="text-xs font-medium text-green-600 uppercase tracking-wider">{t("suggestedDoctor")}</p>
                     <p className="text-base font-bold text-gray-900">{result.suggestedDoctor}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm border border-green-50">
                   <Building2 className="h-6 w-6 text-green-600 mt-1" />
                   <div>
-                    <p className="text-xs font-medium text-green-600 uppercase tracking-wider">Department</p>
+                    <p className="text-xs font-medium text-green-600 uppercase tracking-wider">{t("department")}</p>
                     <p className="text-base font-bold text-gray-900">{result.suggestedDepartment}</p>
                   </div>
                 </div>
               </div>
               <div className="mt-4 p-4 bg-green-900/5 rounded-lg">
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  <span className="font-bold text-green-800">Why:</span> {result.reason}
+                  <span className="font-bold text-green-800">{t("why")}:</span> {result.reason}
                 </p>
               </div>
               <p className="mt-4 text-[10px] text-gray-500 italic text-center">
-                *This is an AI recommendation. If you have an emergency, please visit the hospital immediately.
+                {t("aiDisclaimer")}
               </p>
             </div>
           </div>
@@ -127,5 +130,3 @@ export function DoctorSuggestionTool() {
     </Card>
   );
 }
-
-import { Badge } from "@/components/ui/badge";
