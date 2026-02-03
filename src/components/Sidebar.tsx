@@ -8,6 +8,7 @@ import { Home, Calendar, Users, HelpCircle, Cross } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LanguageSelector } from "./LanguageSelector";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { useState, useEffect } from "react";
 
 const navItems = [
   { label: "Home", href: "/", icon: Home },
@@ -19,20 +20,32 @@ const navItems = [
 export function Sidebar() {
   const pathname = usePathname();
   const emblem = PlaceHolderImages.find((img) => img.id === "ashoka-emblem");
+  const [stars, setStars] = useState<{ top: string; left: string; size: string; delay: string }[]>([]);
+
+  useEffect(() => {
+    // Generate stars only on the client to avoid hydration mismatch
+    const generatedStars = [...Array(12)].map(() => ({
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      size: `${Math.random() * 3 + 1}px`,
+      delay: `${Math.random() * 5}s`,
+    }));
+    setStars(generatedStars);
+  }, []);
 
   return (
     <div className="sidebar-gradient w-64 h-screen fixed left-0 top-0 flex flex-col shadow-2xl relative overflow-hidden text-white z-50">
       {/* Stars Background Effect */}
-      {[...Array(12)].map((_, i) => (
+      {stars.map((star, i) => (
         <div
           key={i}
           className="glowing-star"
           style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            width: `${Math.random() * 3 + 1}px`,
-            height: `${Math.random() * 3 + 1}px`,
-            animationDelay: `${Math.random() * 5}s`,
+            top: star.top,
+            left: star.left,
+            width: star.size,
+            height: star.size,
+            animationDelay: star.delay,
           }}
         />
       ))}
