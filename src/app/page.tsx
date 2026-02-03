@@ -38,9 +38,9 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="space-y-4 bg-white/40 backdrop-blur-md p-6 rounded-3xl border border-white/50 inline-block self-center lg:self-start">
-              <p className="text-xl md:text-2xl text-blue-800 font-medium leading-relaxed">
-                {t("tagline")}
+            <div className="space-y-4 bg-yellow-100/90 backdrop-blur-md p-6 rounded-3xl border-2 border-yellow-400/50 inline-block self-center lg:self-start shadow-xl shadow-yellow-100/30">
+              <p className="text-xl md:text-2xl text-blue-900 font-bold leading-relaxed italic">
+                "{t("tagline")}"
               </p>
             </div>
 
