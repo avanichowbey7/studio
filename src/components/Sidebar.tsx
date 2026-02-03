@@ -9,21 +9,22 @@ import { cn } from "@/lib/utils";
 import { LanguageSelector } from "./LanguageSelector";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useState, useEffect } from "react";
-
-const navItems = [
-  { label: "Home", href: "/", icon: Home },
-  { label: "Book Appointment", href: "/book", icon: Calendar },
-  { label: "Doctors", href: "/doctors", icon: Users },
-  { label: "Help", href: "/help", icon: HelpCircle },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Sidebar() {
   const pathname = usePathname();
+  const { t } = useLanguage();
   const emblem = PlaceHolderImages.find((img) => img.id === "ashoka-emblem");
   const [stars, setStars] = useState<{ top: string; left: string; size: string; delay: string }[]>([]);
 
+  const navItems = [
+    { label: t("home"), href: "/", icon: Home },
+    { label: t("bookAppointment"), href: "/book", icon: Calendar },
+    { label: t("doctors"), href: "/doctors", icon: Users },
+    { label: t("help"), href: "/help", icon: HelpCircle },
+  ];
+
   useEffect(() => {
-    // Generate stars only on the client to avoid hydration mismatch
     const generatedStars = [...Array(12)].map(() => ({
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
@@ -35,7 +36,6 @@ export function Sidebar() {
 
   return (
     <div className="sidebar-gradient w-64 h-screen fixed left-0 top-0 flex flex-col shadow-2xl relative overflow-hidden text-white z-50">
-      {/* Stars Background Effect */}
       {stars.map((star, i) => (
         <div
           key={i}
@@ -50,7 +50,6 @@ export function Sidebar() {
         />
       ))}
 
-      {/* Brand Logo */}
       <div className="p-8 flex flex-col items-center gap-4 relative z-10">
         <div className="relative w-20 h-20 bg-white p-2 rounded-full shadow-lg border-2 border-red-500/50">
           <Image
@@ -66,14 +65,13 @@ export function Sidebar() {
           </div>
         </div>
         <div className="text-center">
-          <p className="text-xs font-bold uppercase tracking-widest opacity-80">Govt. Hospital</p>
-          <h2 className="text-xl font-bold font-headline">स्वास्थ्य मित्र</h2>
+          <p className="text-xs font-bold uppercase tracking-widest opacity-80">{t("govtHospital")}</p>
+          <h2 className="text-xl font-bold font-headline">{t("brandName")}</h2>
         </div>
       </div>
 
       <LanguageSelector />
 
-      {/* Navigation */}
       <nav className="flex-1 px-4 py-2 space-y-2 relative z-10">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
@@ -95,7 +93,6 @@ export function Sidebar() {
         })}
       </nav>
 
-      {/* Bottom info */}
       <div className="p-6 text-center text-[10px] opacity-60 relative z-10">
         <p>© 2024 Ministry of Health</p>
         <p>Govt. of India</p>
